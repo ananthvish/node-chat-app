@@ -14,14 +14,14 @@ io.on('connection', (socket) => {
     console.log('New user connected');
 
     socket.on('createMessage',(message)=>{
-        console.log(message);
+        console.log('from server received ', message);
+
+        io.emit('newMessage', {
+            from : message.from,
+            body : message.body
+        });
     });
 
-    socket.emit('newMessage', {
-        from: 'Ananth',
-        body: 'Hello!',
-        createdAt: new Date()
-    });
 
     socket.on('disconnect', () => {
         console.log('User disconnected');
