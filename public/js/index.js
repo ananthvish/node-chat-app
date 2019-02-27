@@ -4,8 +4,8 @@ socket.on('connect', function () {
 });
 
 socket.on('newMessage', function (newMessage) {
-    console.log('new message', newMessage);
-})
+    console.log(newMessage);
+});
 
 socket.on('disconnect', function () {
     console.log('Disconnected from server');
